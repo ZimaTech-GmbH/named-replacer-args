@@ -1,6 +1,6 @@
 {
   "name": "@zimatech/named-replacer-args",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Turns the arguments of a replacer function in `String.replace` and `String.replaceAll` into an object with useful names.",
   "keywords": [
     "String.replace",
