@@ -1,0 +1,43 @@
+{
+  "name": "@zimatech/named-replacer-args",
+  "version": "1.0.0",
+  "description": "Turns the arguments of a replacer function in `String.replace` and `String.replaceAll` into an object with useful names.",
+  "keywords": [
+    "String.replace",
+    "String.replaceAll",
+    "replacer",
+    "replacement",
+    "argument",
+    "arguments",
+    "parameter",
+    "parameters",
+    "name",
+    "names"
+  ],
+  "license": "ISC",
+  "author": "Olivier Stuker",
+  "main": "lib/cjs/index.cjs",
+  "module": "lib/esm/index.mjs",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.mts",
+      "import": "./lib/esm/index.mjs",
+      "require": "./lib/cjs/index.cjs"
+    }
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "rm -r -f ./lib/** && node esbuild.mjs && tsc && npm pack",
+    "test": "tsx --test",
+    "test:coverage": "tsx --test --experimental-test-coverage"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.1",
+    "@types/node": "^25.9.4",
+    "esbuild": "^0.28.1",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  }
+}
