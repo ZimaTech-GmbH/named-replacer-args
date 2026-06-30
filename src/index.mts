@@ -15,9 +15,9 @@
  * @returns An object with keys corresponding the replacer functions arguments'
  * meaning.
  * @example
- * 'hello'.replace(/^(?<initial>.)/, (...args) => {
- *   const namedArgs = nameReplacerArgs<'initial'>(args)
- *   return `~${namedArgs.groups.initial}~`
+ * 'hello'.replace(/^(?<initial>.)(?<rest>.*)/, (...args) => {
+ *   const namedArgs = nameReplacerArgs<'initial' | 'rest'>(args)
+ *   return `~${namedArgs.groups.initial}~${namedArgs.groups.rest}`
  * })
  * @see {@link NamedReplacerArgs}
  */
@@ -78,6 +78,6 @@ export interface NamedReplacerArgs<
  * If keys are defined, the `groups` property type can be narrowed to
  * `Record<GroupNames, string | undefined>`.
  */
-export type GroupsType<GroupNames> = GroupNames extends string
+export type GroupsType<GroupNames> = [GroupNames] extends [string]
   ? Record<GroupNames, string | undefined>
   : Record<string, string | undefined> | undefined

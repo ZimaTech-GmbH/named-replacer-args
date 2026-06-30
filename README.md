@@ -37,9 +37,9 @@ union (e.g. `'firstName' | 'lastName'`)
 meaning.
 - *@example* 
 ```js
-'hello'.replace(/^(?<initial>.)/, (...args) => {
-  const namedArgs = nameReplacerArgs<'initial'>(args)
-  return `~${namedArgs.groups.initial}~`
+'hello'.replace(/^(?<initial>.)(?<rest>.*)/, (...args) => {
+  const namedArgs = nameReplacerArgs<'initial' | 'rest'>(args)
+  return `~${namedArgs.groups.initial}~${namedArgs.groups.rest}`
 })
 ```
 - *@see* <a href="#-export-interface-namedreplacerargs-">`NamedReplacerArgs`</a>

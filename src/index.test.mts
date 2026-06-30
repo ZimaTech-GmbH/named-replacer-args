@@ -62,9 +62,9 @@ suite('Code examples', () => {
   // `groups` property could be undefined.
   test('Named groups without type hint', () => {
     assert.strictEqual(
-      'hello'.replace(/^(?<initial>.)/, (...args) => {
+      'hello'.replace(/^(?<initial>.)(?<rest>.*)/, (...args) => {
         const namedArgs = nameReplacerArgs(args)
-        return `~${namedArgs.groups?.initial}~`
+        return `~${namedArgs.groups?.initial}~${namedArgs.groups?.rest}`
       }),
       '~h~ello',
     )
@@ -74,9 +74,9 @@ suite('Code examples', () => {
   // fields.
   test('Named groups with type hint', () => {
     assert.strictEqual(
-      'hello'.replace(/^(?<initial>.)/, (...args) => {
-        const namedArgs = nameReplacerArgs<'initial'>(args)
-        return `~${namedArgs.groups.initial}~`
+      'hello'.replace(/^(?<initial>.)(?<rest>.*)/, (...args) => {
+        const namedArgs = nameReplacerArgs<'initial' | 'rest'>(args)
+        return `~${namedArgs.groups.initial}~${namedArgs.groups.rest}`
       }),
       '~h~ello',
     )
