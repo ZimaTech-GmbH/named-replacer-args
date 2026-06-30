@@ -29,7 +29,7 @@
     "lib"
   ],
   "scripts": {
-    "build": "rm -r -f ./lib/** && node esbuild.mjs && tsc && npm pack",
+    "build": "rm -r -f ./lib/** && node esbuild.mjs && tsc -p tsconfig.lib.json && npm pack",
     "test": "tsx --test",
     "test:coverage": "tsx --test --experimental-test-coverage"
   },

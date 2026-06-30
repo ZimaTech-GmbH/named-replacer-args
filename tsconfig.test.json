@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.json",
+  "files": ["./src/index.test.mts"],
+  "compilerOptions": {
+    "types": ["node"]
+  }
+}
